@@ -1,9 +1,12 @@
+import 'dart:ui';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_custom_clippers/flutter_custom_clippers.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage
 ({super.key});
+
 
   @override
   Widget build(BuildContext context) {
@@ -19,7 +22,40 @@ class HomePage extends StatelessWidget {
           ),
           child: Column(
             children: [
-              ClipPath(
+              _banner(context),
+              const SizedBox(height: 50),
+              const Text(
+                  'Bienvenid@ Cardenal',
+                    style: TextStyle(
+                    fontSize: 20,
+                    fontWeight: FontWeight.bold,
+                    color: Colors.white
+                  ),
+                ),
+                const Text(
+                  'Selecciona una opcion',
+                    style: TextStyle(
+                    fontSize: 16,
+                    color: Colors.white
+                  ),
+                ),
+              const SizedBox(height: 30,),
+              _imageTypeUser('assets/img/pasajero.png'),
+              const SizedBox(height: 10,),
+              _textTypeUser('Pasajero'),
+              const SizedBox(height: 30,),
+              _imageTypeUser('assets/img/conductor.png'),
+              const SizedBox(height: 10,),
+              _textTypeUser('Conductor')
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+
+  Widget _banner(BuildContext context){
+    return ClipPath(
                 clipper: DiagonalPathClipperTwo(),
                 child: Container(
                   color: Colors.white,
@@ -43,54 +79,26 @@ class HomePage extends StatelessWidget {
                   ],
               ),
                 ),
-              ),
-              const SizedBox(height: 50),
-              const Text(
-                  'Bienvenid@ Cardenal',
-                    style: TextStyle(
-                    fontSize: 20,
-                    fontWeight: FontWeight.bold,
-                    color: Colors.white
-                  ),
-                ),
-                const Text(
-                  'Selecciona una opcion',
-                    style: TextStyle(
-                    fontSize: 16,
-                    color: Colors.white
-                  ),
-                ),
-              const SizedBox(height: 30,),
-              const CircleAvatar(
-                backgroundImage: AssetImage('assets/img/pasajero.png',),
-                radius: 100,
-                backgroundColor: Colors.black,
-              ),
-              const SizedBox(height: 10,),
-              const Text(
-              'Pasajero',
-                  style: TextStyle(
-                    fontSize: 19,
-                    color: Colors.white
-                  ),
-              ),
-              const SizedBox(height: 30,),
-              const CircleAvatar(
-                backgroundImage: AssetImage('assets/img/conductor.png',),
-                radius: 100,
-                backgroundColor: Colors.black,
-              ),
-              const SizedBox(height: 10,),
-              const Text('Conductor',
-                style: TextStyle(
-                  fontSize: 19,
-                  color: Colors.white
-                  ),
-              )
-            ],
-          ),
+              );
+  }
+
+
+  Widget _imageTypeUser(String image){
+    return CircleAvatar(
+      backgroundImage: AssetImage(image),
+      radius: 100,
+      backgroundColor: Colors.black,
+      );
+  }
+
+
+  Widget _textTypeUser(String typeUser){
+    return Text(
+      typeUser,
+      style: const TextStyle(
+        fontSize: 19,
+        color: Colors.white
         ),
-      ),
-    );
+      );
   }
 }
