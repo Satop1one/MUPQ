@@ -20,6 +20,9 @@ class _MyAppState extends State<MyApp> {
       debugShowCheckedModeBanner: false,
       title: 'MUQP',
       initialRoute: 'home',
+      theme: ThemeData(
+        fontFamily: 'NimbusSans'
+      ),
       routes: {
         'home' : (BuildContext context) => HomePage() 
       },

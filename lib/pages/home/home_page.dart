@@ -32,7 +32,14 @@ class HomePage extends StatelessWidget {
                       width: 120,
                       height: 140,
                       ),
-                    const Text('Muevete UPQ'),
+                    const Text(
+                      'Muevete UPQ',
+                      style: TextStyle(
+                        fontFamily: 'Rilenda',
+                        fontSize: 22,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
                   ],
               ),
                 ),
@@ -41,12 +48,15 @@ class HomePage extends StatelessWidget {
               const Text(
                   'Bienvenid@ Cardenal',
                     style: TextStyle(
+                    fontSize: 20,
+                    fontWeight: FontWeight.bold,
                     color: Colors.white
                   ),
                 ),
                 const Text(
                   'Selecciona una opcion',
                     style: TextStyle(
+                    fontSize: 16,
                     color: Colors.white
                   ),
                 ),
@@ -60,6 +70,7 @@ class HomePage extends StatelessWidget {
               const Text(
               'Pasajero',
                   style: TextStyle(
+                    fontSize: 19,
                     color: Colors.white
                   ),
               ),
@@ -72,6 +83,7 @@ class HomePage extends StatelessWidget {
               const SizedBox(height: 10,),
               const Text('Conductor',
                 style: TextStyle(
+                  fontSize: 19,
                   color: Colors.white
                   ),
               )
