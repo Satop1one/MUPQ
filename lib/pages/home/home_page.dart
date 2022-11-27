@@ -1,15 +1,13 @@
-import 'dart:ui';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_custom_clippers/flutter_custom_clippers.dart';
 
 class HomePage extends StatelessWidget {
-  const HomePage
-({super.key});
-
-
+  HomePage
+({key});
   @override
   Widget build(BuildContext context) {
+
     return Scaffold(
       body: SafeArea(
         child: Container(
@@ -40,11 +38,11 @@ class HomePage extends StatelessWidget {
                   ),
                 ),
               const SizedBox(height: 30,),
-              _imageTypeUser('assets/img/pasajero.png'),
+              _imageTypeUser(context, 'assets/img/pasajero.png'),
               const SizedBox(height: 10,),
               _textTypeUser('Pasajero'),
               const SizedBox(height: 30,),
-              _imageTypeUser('assets/img/conductor.png'),
+              _imageTypeUser(context, 'assets/img/conductor.png'),
               const SizedBox(height: 10,),
               _textTypeUser('Conductor')
             ],
@@ -59,7 +57,7 @@ class HomePage extends StatelessWidget {
                 clipper: DiagonalPathClipperTwo(),
                 child: Container(
                   color: Colors.white,
-                  height: MediaQuery.maybeOf(context)!.size.height*0.16,
+                  height: MediaQuery.maybeOf(context).size.height*0.16,
                   child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
@@ -83,12 +81,16 @@ class HomePage extends StatelessWidget {
   }
 
 
-  Widget _imageTypeUser(String image){
-    return CircleAvatar(
-      backgroundImage: AssetImage(image),
-      radius: 100,
-      backgroundColor: Colors.black,
-      );
+  Widget _imageTypeUser(BuildContext context, String image){
+    return GestureDetector(
+      onTap:(){ goToLoginPage(context);
+      },
+      child: CircleAvatar(
+        backgroundImage: AssetImage(image),
+        radius: 100,
+        backgroundColor: Colors.black,
+        ),
+    );
   }
 
 
@@ -101,4 +103,13 @@ class HomePage extends StatelessWidget {
         ),
       );
   }
+
+  void goToLoginPage(BuildContext context){
+    Navigator.pushNamed(context, 'login');
+  }
+
+  
+
+
+
 }

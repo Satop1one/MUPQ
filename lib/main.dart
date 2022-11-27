@@ -1,4 +1,5 @@
 import 'package:estancias/pages/home/home_page.dart';
+import 'package:estancias/pages/login/login_page.dart';
 import 'package:flutter/material.dart';
 
 
@@ -7,7 +8,7 @@ void main() {
 }
 
 class MyApp extends StatefulWidget {
-  const MyApp({super.key});
+  const MyApp({key});
 
   @override
   State<MyApp> createState() => _MyAppState();
@@ -24,7 +25,8 @@ class _MyAppState extends State<MyApp> {
         fontFamily: 'NimbusSans'
       ),
       routes: {
-        'home' : (BuildContext context) => HomePage() 
+        'home' : (BuildContext context) => HomePage(),
+        'login' : (BuildContext context) => loginPage(),
       },
     );
   }
